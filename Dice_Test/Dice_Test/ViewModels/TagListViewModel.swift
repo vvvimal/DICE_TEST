@@ -11,6 +11,7 @@ import UIKit
 protocol TagListDataSourceUpdater {
     func reloadTableView()
     func setError(error:APIError)
+    func showDetail(tag:String)
 }
 class TagListViewModel: NSObject {
 
@@ -70,7 +71,15 @@ extension TagListViewModel: UITableViewDataSource, UITableViewDelegate{
     ///   - indexPath: indexPath of the cell
     /// - Returns: CGFloat value representing the height of the cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 48.0
+        return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tagName = self.tagListArray[indexPath.row]
+        self.delegate?.showDetail(tag: tagName)
+    }
 }

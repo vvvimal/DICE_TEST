@@ -1,18 +1,23 @@
 //
-//  TagListGetManager.swift
+//  TagDetailGetManager.swift
 //  Dice_Test
 //
-//  Created by Venugopalan, Vimal on 09/08/19.
+//  Created by Venugopalan, Vimal on 10/08/19.
 //  Copyright © 2019 Venugopalan, Vimal. All rights reserved.
 //
 
 import UIKit
 
-struct TagListGetRequest: BaseRequest {
-    var urlString: String = NetworkData.kBaseURL + NetworkData.kTagEndPoint
+struct TagDetailGetRequest: BaseRequest {
+    var urlString: String
+    
+    init(tagName:String) {
+        let originalString = NetworkData.kBaseURL + NetworkData.kTagEndPoint + "/\(tagName)"
+        urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
 }
 
-class TagListGetManager: NetworkManager {
+class TagDetailGetManager: NetworkManager {
     var session: URLSession
     
     
@@ -32,10 +37,11 @@ class TagListGetManager: NetworkManager {
     /// - Parameters:
     ///   - request: In Bus Request object
     ///   - completion: Result consisting of the TagListViewModel Object or APIError
-    func getTagList(from request: TagListGetRequest, completion: @escaping (Result<TagListResponseModel?, APIError>) -> Void) {
+    func getTagDetail
+        (from request: TagDetailGetRequest, completion: @escaping (Result<TagDetailResponseModel?, APIError>) -> Void) {
         if let requestObj = request.request{
-            fetch(with: requestObj, decode: { json -> TagListResponseModel? in
-                guard let tagListModelResult = json as? TagListResponseModel else { return  nil }
+            fetch(with: requestObj, decode: { json -> TagDetailResponseModel? in
+                guard let tagListModelResult = json as? TagDetailResponseModel else { return  nil }
                 return tagListModelResult
             }, completion: completion)
         }

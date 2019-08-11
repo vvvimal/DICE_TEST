@@ -17,6 +17,8 @@ struct NetworkData {
 /// Constant String used in the app
 struct AppIdentifierStrings {
     static var kTagListViewCellReuseIdentifier = "TagListViewCellIdentifier"
+    static var kTagDetailListViewCellReuseIdentifier = "TagDetailListViewCellIdentifier"
+
 }
 
 /// API related errors

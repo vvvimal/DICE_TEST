@@ -20,7 +20,6 @@ class TagListViewController: UITableViewController {
         self.setupView()
         self.setupTableView()
         viewModel.delegate = self
-        tableView.register(TagListViewCell.self, forCellReuseIdentifier: AppIdentifierStrings.kTagListViewCellReuseIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +41,8 @@ class TagListViewController: UITableViewController {
         self.tableView.dataSource = viewModel
         self.tableView.delegate = viewModel
         self.tableView.tableFooterView = UIView()
+        self.tableView.register(TagListViewCell.self, forCellReuseIdentifier: AppIdentifierStrings.kTagListViewCellReuseIdentifier)
+
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -59,6 +60,20 @@ class TagListViewController: UITableViewController {
         viewModel.getTagList()
         
     }
+    
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+        if segue.identifier == "showTagDetail"{
+            if let tagDetailViewController = segue.destination as? TagDetailListViewController{
+                tagDetailViewController.setUpWith(data: sender ?? "")
+            }
+        }
+     }
 
 }
 
@@ -82,6 +97,10 @@ extension TagListViewController: TagListDataSourceUpdater {
             self.activityStopAnimating()
             self.showAlert(withTitle: "Error", message: error.message)
         }
+    }
+    
+    func showDetail(tag: String) {
+        self.performSegue(withIdentifier: "showTagDetail", sender: tag)
     }
     
 }

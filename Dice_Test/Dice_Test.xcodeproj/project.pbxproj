@@ -16,13 +16,18 @@
 		60726D2822FC991000758412 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2722FC991000758412 /* TagListViewController.swift */; };
 		60726D2A22FC993B00758412 /* TagListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2922FC993B00758412 /* TagListViewModel.swift */; };
 		60726D2C22FC9C5B00758412 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2B22FC9C5B00758412 /* AppConstants.swift */; };
-		60726D3022FCA36B00758412 /* TagListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2F22FCA36B00758412 /* TagListModel.swift */; };
+		60726D3022FCA36B00758412 /* TagListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2F22FCA36B00758412 /* TagListResponseModel.swift */; };
 		60726D3222FCABDA00758412 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3122FCABDA00758412 /* NetworkManager.swift */; };
 		60726D3422FCACA300758412 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3322FCACA300758412 /* Reachability.swift */; };
 		60726D3722FCACEF00758412 /* TagListGetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3622FCACEF00758412 /* TagListGetManager.swift */; };
 		60726D3922FCAD1700758412 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3822FCAD1700758412 /* BaseRequest.swift */; };
 		60726D3B22FCB67000758412 /* TagListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3A22FCB67000758412 /* TagListViewCell.swift */; };
 		60726D3D22FCB83000758412 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3C22FCB83000758412 /* Extensions.swift */; };
+		60726D3F22FE938E00758412 /* TagDetailGetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D3E22FE938E00758412 /* TagDetailGetManager.swift */; };
+		60726D4122FE987A00758412 /* TagDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4022FE987A00758412 /* TagDetailListViewController.swift */; };
+		60726D4322FE991800758412 /* TagDetailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4222FE991800758412 /* TagDetailListViewModel.swift */; };
+		60726D4522FF4B9F00758412 /* TagDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4422FF4B9F00758412 /* TagDetailResponseModel.swift */; };
+		60726D472300327100758412 /* TagDetailListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D462300327100758412 /* TagDetailListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +63,18 @@
 		60726D2722FC991000758412 /* TagListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
 		60726D2922FC993B00758412 /* TagListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewModel.swift; sourceTree = "<group>"; };
 		60726D2B22FC9C5B00758412 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		60726D2F22FCA36B00758412 /* TagListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListModel.swift; sourceTree = "<group>"; };
+		60726D2F22FCA36B00758412 /* TagListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListResponseModel.swift; sourceTree = "<group>"; };
 		60726D3122FCABDA00758412 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		60726D3322FCACA300758412 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		60726D3622FCACEF00758412 /* TagListGetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListGetManager.swift; sourceTree = "<group>"; };
 		60726D3822FCAD1700758412 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		60726D3A22FCB67000758412 /* TagListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewCell.swift; sourceTree = "<group>"; };
 		60726D3C22FCB83000758412 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		60726D3E22FE938E00758412 /* TagDetailGetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailGetManager.swift; sourceTree = "<group>"; };
+		60726D4022FE987A00758412 /* TagDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListViewController.swift; sourceTree = "<group>"; };
+		60726D4222FE991800758412 /* TagDetailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListViewModel.swift; sourceTree = "<group>"; };
+		60726D4422FF4B9F00758412 /* TagDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailResponseModel.swift; sourceTree = "<group>"; };
+		60726D462300327100758412 /* TagDetailListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				60726D2722FC991000758412 /* TagListViewController.swift */,
+				60726D4022FE987A00758412 /* TagDetailListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				60726D2922FC993B00758412 /* TagListViewModel.swift */,
+				60726D4222FE991800758412 /* TagDetailListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,7 +198,8 @@
 		60726D2D22FCA18A00758412 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				60726D2F22FCA36B00758412 /* TagListModel.swift */,
+				60726D2F22FCA36B00758412 /* TagListResponseModel.swift */,
+				60726D4422FF4B9F00758412 /* TagDetailResponseModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				60726D3A22FCB67000758412 /* TagListViewCell.swift */,
+				60726D462300327100758412 /* TagDetailListViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +218,7 @@
 			children = (
 				60726D3822FCAD1700758412 /* BaseRequest.swift */,
 				60726D3622FCACEF00758412 /* TagListGetManager.swift */,
+				60726D3E22FE938E00758412 /* TagDetailGetManager.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -341,15 +356,20 @@
 			files = (
 				60726D3422FCACA300758412 /* Reachability.swift in Sources */,
 				60726D3222FCABDA00758412 /* NetworkManager.swift in Sources */,
+				60726D3F22FE938E00758412 /* TagDetailGetManager.swift in Sources */,
 				60726D2822FC991000758412 /* TagListViewController.swift in Sources */,
+				60726D4522FF4B9F00758412 /* TagDetailResponseModel.swift in Sources */,
 				60726CF622FC95E300758412 /* AppDelegate.swift in Sources */,
-				60726D3022FCA36B00758412 /* TagListModel.swift in Sources */,
+				60726D3022FCA36B00758412 /* TagListResponseModel.swift in Sources */,
 				60726D3B22FCB67000758412 /* TagListViewCell.swift in Sources */,
 				60726D3722FCACEF00758412 /* TagListGetManager.swift in Sources */,
 				60726D2A22FC993B00758412 /* TagListViewModel.swift in Sources */,
 				60726D2C22FC9C5B00758412 /* AppConstants.swift in Sources */,
 				60726D3D22FCB83000758412 /* Extensions.swift in Sources */,
+				60726D472300327100758412 /* TagDetailListViewCell.swift in Sources */,
 				60726D3922FCAD1700758412 /* BaseRequest.swift in Sources */,
+				60726D4322FE991800758412 /* TagDetailListViewModel.swift in Sources */,
+				60726D4122FE987A00758412 /* TagDetailListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

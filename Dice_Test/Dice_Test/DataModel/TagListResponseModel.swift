@@ -1,5 +1,5 @@
 //
-//  TagListModel.swift
+//  TagListResponseModel.swift
 //  Dice_Test
 //
 //  Created by Venugopalan, Vimal on 09/08/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct TagListModel: Decodable{
-    let count:Int?
-    let total:Int?
+struct TagListResponseModel: Decodable{
+    let count:Int
+    let total:Int
     let tagNameArray:[String]
     
     

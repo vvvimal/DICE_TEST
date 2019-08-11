@@ -12,6 +12,7 @@ class TagListViewCell: UITableViewCell {
     /// Name Label
     lazy var nameLabel: UILabel = {
         let nl = UILabel()
+        nl.numberOfLines = 0
         addSubview(nl)
         nl.translatesAutoresizingMaskIntoConstraints = false
         return nl
@@ -24,11 +25,12 @@ class TagListViewCell: UITableViewCell {
     ///   - reuseIdentifier: Identifier for cell
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.accessoryType = .disclosureIndicator
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16.0),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16.0),
-            nameLabel.topAnchor.constraint(equalTo: bottomAnchor, constant: 16.0),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0),
             ])
         nameLabel.isAccessibilityElement = true
         nameLabel.accessibilityIdentifier = "nameLabel"
