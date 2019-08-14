@@ -20,13 +20,22 @@ class TagListViewController: UITableViewController {
         self.setupView()
         self.setupTableView()
         viewModel.delegate = self
+        self.getTagListData()
     }
+
     
-    override func viewDidAppear(_ animated: Bool) {
+    /// Get tag list data from API
+    func getTagListData(){
         self.activityStartAnimating()
-        viewModel.getTagList()
+        viewModel.getTagList(completion: {[weak self] success, error in
+            if let errorObj = error{
+                self?.setError(error: errorObj)
+            }
+            else{
+                self?.reloadTableView()
+            }
+        })
     }
-    
     
     /// Set up UI elements
     func setupView(){
@@ -56,9 +65,7 @@ class TagListViewController: UITableViewController {
     /// - Parameter sender: UIRefreshControl object
     @objc func refresh(sender:AnyObject) {
         // Code to refresh table view
-        self.activityStartAnimating()
-        viewModel.getTagList()
-        
+        self.getTagListData()
     }
     
     
@@ -74,12 +81,8 @@ class TagListViewController: UITableViewController {
             }
         }
      }
-
-}
-
-extension TagListViewController: TagListDataSourceUpdater {
     
-    /// Datasource received custom delegate method
+    /// Reload data after successful API request
     func reloadTableView() {
         DispatchQueue.main.async() { () -> Void in
             self.activityStopAnimating()
@@ -89,7 +92,7 @@ extension TagListViewController: TagListDataSourceUpdater {
         
     }
     
-    /// Error received custom delegate method
+    /// Error received from API request
     ///
     /// - Parameter error: APIError
     func setError(error:APIError){
@@ -98,7 +101,14 @@ extension TagListViewController: TagListDataSourceUpdater {
             self.showAlert(withTitle: "Error", message: error.message)
         }
     }
+
+}
+
+extension TagListViewController: TagListDataSourceUpdater {
     
+    /// Show tag detail
+    ///
+    /// - Parameter tag: tag string value
     func showDetail(tag: String) {
         self.performSegue(withIdentifier: "showTagDetail", sender: tag)
     }

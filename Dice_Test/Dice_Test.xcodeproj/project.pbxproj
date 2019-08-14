@@ -11,7 +11,6 @@
 		60726CFB22FC95E300758412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60726CF922FC95E300758412 /* Main.storyboard */; };
 		60726CFD22FC95E500758412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60726CFC22FC95E500758412 /* Assets.xcassets */; };
 		60726D0022FC95E500758412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60726CFE22FC95E500758412 /* LaunchScreen.storyboard */; };
-		60726D0B22FC95E500758412 /* Dice_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D0A22FC95E500758412 /* Dice_TestTests.swift */; };
 		60726D1622FC95E500758412 /* Dice_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D1522FC95E500758412 /* Dice_TestUITests.swift */; };
 		60726D2822FC991000758412 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2722FC991000758412 /* TagListViewController.swift */; };
 		60726D2A22FC993B00758412 /* TagListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D2922FC993B00758412 /* TagListViewModel.swift */; };
@@ -28,6 +27,10 @@
 		60726D4322FE991800758412 /* TagDetailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4222FE991800758412 /* TagDetailListViewModel.swift */; };
 		60726D4522FF4B9F00758412 /* TagDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4422FF4B9F00758412 /* TagDetailResponseModel.swift */; };
 		60726D472300327100758412 /* TagDetailListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D462300327100758412 /* TagDetailListViewCell.swift */; };
+		60726D492301B30100758412 /* TagListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D482301B30100758412 /* TagListTests.swift */; };
+		60726D4B2301BF4700758412 /* TagDetailListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4A2301BF4700758412 /* TagDetailListTests.swift */; };
+		60726D4E2302F84200758412 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D4D2302F84200758412 /* NetworkTests.swift */; };
+		60726D562304B2E400758412 /* Dice_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60726D552304B2E400758412 /* Dice_TestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +58,6 @@
 		60726CFF22FC95E500758412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60726D0122FC95E500758412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60726D0622FC95E500758412 /* Dice_TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dice_TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60726D0A22FC95E500758412 /* Dice_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice_TestTests.swift; sourceTree = "<group>"; };
 		60726D0C22FC95E500758412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60726D1122FC95E500758412 /* Dice_TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dice_TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60726D1522FC95E500758412 /* Dice_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice_TestUITests.swift; sourceTree = "<group>"; };
@@ -75,6 +77,10 @@
 		60726D4222FE991800758412 /* TagDetailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListViewModel.swift; sourceTree = "<group>"; };
 		60726D4422FF4B9F00758412 /* TagDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailResponseModel.swift; sourceTree = "<group>"; };
 		60726D462300327100758412 /* TagDetailListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListViewCell.swift; sourceTree = "<group>"; };
+		60726D482301B30100758412 /* TagListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListTests.swift; sourceTree = "<group>"; };
+		60726D4A2301BF4700758412 /* TagDetailListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailListTests.swift; sourceTree = "<group>"; };
+		60726D4D2302F84200758412 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		60726D552304B2E400758412 /* Dice_TestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice_TestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +149,11 @@
 		60726D0922FC95E500758412 /* Dice_TestTests */ = {
 			isa = PBXGroup;
 			children = (
-				60726D0A22FC95E500758412 /* Dice_TestTests.swift */,
+				60726D552304B2E400758412 /* Dice_TestTests.swift */,
 				60726D0C22FC95E500758412 /* Info.plist */,
+				60726D482301B30100758412 /* TagListTests.swift */,
+				60726D4A2301BF4700758412 /* TagDetailListTests.swift */,
+				60726D4D2302F84200758412 /* NetworkTests.swift */,
 			);
 			path = Dice_TestTests;
 			sourceTree = "<group>";
@@ -377,7 +386,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60726D0B22FC95E500758412 /* Dice_TestTests.swift in Sources */,
+				60726D4B2301BF4700758412 /* TagDetailListTests.swift in Sources */,
+				60726D492301B30100758412 /* TagListTests.swift in Sources */,
+				60726D562304B2E400758412 /* Dice_TestTests.swift in Sources */,
+				60726D4E2302F84200758412 /* NetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

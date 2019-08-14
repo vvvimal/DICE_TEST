@@ -22,24 +22,10 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /// Showing alert for generic messages
-    ///
-    /// - Parameters:
-    ///   - title: title of the message
-    ///   - message: message body
-    func showAlert(withTitle title: String, message : String, completionHandler:@escaping () -> Void) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .cancel) { action in
-            completionHandler()
-        }
-        alertController.addAction(OKAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     /// Activity Indicator start animation
     func activityStartAnimating() {
         let backgroundView = UIView()
-        backgroundView.frame = CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        backgroundView.frame = CGRect.init(x: self.view.bounds.origin.x, y: self.view.bounds.origin.y, width: self.view.bounds.width, height: self.view.bounds.height)
         backgroundView.backgroundColor = UIColor.clear
         backgroundView.tag = 475647
         
@@ -56,6 +42,7 @@ extension UIViewController {
         
         self.view.addSubview(backgroundView)
         self.view.bringSubviewToFront(backgroundView)
+        
     }
     
     /// Activity Indicator stop animation
@@ -68,6 +55,7 @@ extension UIViewController {
 }
 
 extension DateFormatter {
+    //ISO 8601 full date formatter
     static let iso8601Full: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
@@ -77,6 +65,7 @@ extension DateFormatter {
         return formatter
     }()
     
+    //ISO 8601 half date formatter
     static let iso8601Half: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

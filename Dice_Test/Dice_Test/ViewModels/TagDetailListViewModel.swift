@@ -9,9 +9,8 @@
 import UIKit
 
 protocol TagDetailListDataSourceUpdater {
-    func reloadTableView()
-    func setError(error:APIError)
     func open(url:String)
+    func getNextPageData()
 }
 
 class TagDetailListViewModel: NSObject {
@@ -23,16 +22,22 @@ class TagDetailListViewModel: NSObject {
     var tagDetailListArray: [TagDetailModel] = []
     
     var tagName:String = ""
+    
+    var nextPage = 1
+    
+    var totalRecords = 0
 
-    func getTagDetail(){
+    func getTagDetail(completion:@escaping DiceAPIFetchCompletionHandler){
         if tagName.count > 0{
-            tagDetailGetManager.getTagDetail(from: TagDetailGetRequest(tagName: tagName), completion: { result in
+            tagDetailGetManager.getTagDetail(from: TagDetailGetRequest(tagName: tagName, nextPage:nextPage), completion: {[weak self] result in
                 switch result {
                 case .success(let tagDetailListModel):
-                    self.tagDetailListArray = tagDetailListModel?.tagDetailDict?.tagDetailArray ?? []
-                    self.delegate?.reloadTableView()
+                    self?.tagDetailListArray.append(contentsOf: tagDetailListModel?.tagDetailDict?.tagDetailArray ?? [])
+                    self?.totalRecords = tagDetailListModel?.total ?? 0
+                    self?.nextPage = (self?.nextPage ?? 0) + 1
+                    completion(true, nil)
                 case .failure(let error):
-                    self.delegate?.setError(error: error)
+                    completion(false, error)
                 }
             })
         }
@@ -73,11 +78,16 @@ extension TagDetailListViewModel: UITableViewDataSource, UITableViewDelegate{
     /// - Parameters:
     ///   - tableView: UITableView object
     ///   - indexPath: indexPath of the cell
-    /// - Returns: CGFloat value representing the height of the cell
+    /// - Returns: Automatic height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
+    /// Tableview did select cell action
+    ///
+    /// - Parameters:
+    ///   - tableView: UITableView object
+    ///   - indexPath: indexPath of the cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tagDetail = self.tagDetailListArray[indexPath.row]
         if let url = tagDetail.additionalDetail?.source?[0].url{
@@ -85,8 +95,22 @@ extension TagDetailListViewModel: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    /// Estimated height for tableview row cell
+    ///
+    /// - Parameters:
+    ///   - tableView: UITableView object
+    ///   - indexPath: indexPath of the cell
+    /// - Returns: CGFloat value representing the estimated height of the cell
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
+        {
+            if (self.tagDetailListArray.count < self.totalRecords) {
+                self.delegate?.getNextPageData()
+            }
+        }
+    }
 }

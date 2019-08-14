@@ -30,9 +30,9 @@ class TagListGetManager: NetworkManager {
     /// Get Tag List
     ///
     /// - Parameters:
-    ///   - request: In Bus Request object
-    ///   - completion: Result consisting of the TagListViewModel Object or APIError
-    func getTagList(from request: TagListGetRequest, completion: @escaping (Result<TagListResponseModel?, APIError>) -> Void) {
+    ///   - request: BaseRequest object to check negative cases, should be TagListGetRequest
+    ///   - completion: Result consisting of the TagListResponseModel Object or APIError
+    func getTagList(from request: BaseRequest, completion: @escaping (Result<TagListResponseModel?, APIError>) -> Void) {
         if let requestObj = request.request{
             fetch(with: requestObj, decode: { json -> TagListResponseModel? in
                 guard let tagListModelResult = json as? TagListResponseModel else { return  nil }

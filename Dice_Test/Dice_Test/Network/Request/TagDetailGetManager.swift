@@ -11,8 +11,14 @@ import UIKit
 struct TagDetailGetRequest: BaseRequest {
     var urlString: String
     
-    init(tagName:String) {
-        let originalString = NetworkData.kBaseURL + NetworkData.kTagEndPoint + "/\(tagName)"
+    init(tagName:String, nextPage:Int) {
+        var originalString = ""
+        if nextPage <= 1{
+            originalString = NetworkData.kBaseURL + NetworkData.kTagEndPoint + "/\(tagName)"
+        }
+        else{
+            originalString = NetworkData.kBaseURL + NetworkData.kTagEndPoint + "/\(tagName)?page=\(nextPage)"
+        }
         urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
 }
@@ -35,10 +41,9 @@ class TagDetailGetManager: NetworkManager {
     /// Get Tag List
     ///
     /// - Parameters:
-    ///   - request: In Bus Request object
-    ///   - completion: Result consisting of the TagListViewModel Object or APIError
-    func getTagDetail
-        (from request: TagDetailGetRequest, completion: @escaping (Result<TagDetailResponseModel?, APIError>) -> Void) {
+    ///   - request: BaseRequest object to test negative case, but should be TagListGetRequest
+    ///   - completion: Result consisting of the TagDetailResponseModel Object or APIError
+    func getTagDetail(from request: BaseRequest, completion: @escaping (Result<TagDetailResponseModel?, APIError>) -> Void) {
         if let requestObj = request.request{
             fetch(with: requestObj, decode: { json -> TagDetailResponseModel? in
                 guard let tagListModelResult = json as? TagDetailResponseModel else { return  nil }

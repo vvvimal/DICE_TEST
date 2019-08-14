@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Tag List API Response Model
 struct TagListResponseModel: Decodable{
     let count:Int
     let total:Int

@@ -9,8 +9,6 @@
 import UIKit
 
 protocol TagListDataSourceUpdater {
-    func reloadTableView()
-    func setError(error:APIError)
     func showDetail(tag:String)
 }
 class TagListViewModel: NSObject {
@@ -21,16 +19,17 @@ class TagListViewModel: NSObject {
     
     private let tagListGetManager = TagListGetManager()
     
+    
     /// Trigger Customer Fetch Request
-    func getTagList(){
-        tagListGetManager.getTagList(from: TagListGetRequest(), completion: {
+    func getTagList(completion: @escaping DiceAPIFetchCompletionHandler){
+        tagListGetManager.getTagList(from: TagListGetRequest(), completion: {[weak self]
             result in
             switch result {
             case .success(let tagListModel):
-                self.tagListArray = tagListModel?.tagNameArray ?? []
-                self.delegate?.reloadTableView()
+                self?.tagListArray = tagListModel?.tagNameArray ?? []
+                completion(true, nil)
             case .failure(let error):
-                self.delegate?.setError(error: error)
+                completion(false, error)
             }
         })
     }
@@ -69,15 +68,26 @@ extension TagListViewModel: UITableViewDataSource, UITableViewDelegate{
     /// - Parameters:
     ///   - tableView: UITableView object
     ///   - indexPath: indexPath of the cell
-    /// - Returns: CGFloat value representing the height of the cell
+    /// - Returns: Automatic height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
+    /// Estimated height for tableview row cell
+    ///
+    /// - Parameters:
+    ///   - tableView: UITableView object
+    ///   - indexPath: indexPath of the cell
+    /// - Returns: CGFloat value representing the estimated height of the cell
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 80
     }
     
+    /// Tableview did select cell action
+    ///
+    /// - Parameters:
+    ///   - tableView: UITableView object
+    ///   - indexPath: indexPath of the cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tagName = self.tagListArray[indexPath.row]
         self.delegate?.showDetail(tag: tagName)

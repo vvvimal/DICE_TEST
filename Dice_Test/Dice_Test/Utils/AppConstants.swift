@@ -18,7 +18,6 @@ struct NetworkData {
 struct AppIdentifierStrings {
     static var kTagListViewCellReuseIdentifier = "TagListViewCellIdentifier"
     static var kTagDetailListViewCellReuseIdentifier = "TagDetailListViewCellIdentifier"
-
 }
 
 /// API related errors
@@ -41,3 +40,7 @@ enum APIError: Error {
         }
     }
 }
+
+// completion handler returning success or APIError object
+typealias DiceAPIFetchCompletionHandler = (Bool, APIError?) -> Void
+

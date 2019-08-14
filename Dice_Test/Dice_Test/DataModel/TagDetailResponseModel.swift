@@ -12,7 +12,7 @@ public let iso8601HalfFormatter = DateFormatter.iso8601Half
 public let iso8601FullFormatter = DateFormatter.iso8601Full
 
 
-
+//Tag Detail API Response Model
 struct TagDetailResponseModel: Decodable {
     let count:Int?
     let total:Int?
@@ -69,9 +69,7 @@ struct TagDetailModel: Decodable{
         if let date = iso8601HalfFormatter.date(from: appearedDateString) {
             self.appearedAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .appearedAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .appearedAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         
 
@@ -79,9 +77,7 @@ struct TagDetailModel: Decodable{
         if let date = iso8601FullFormatter.date(from: createdDateString) {
             self.createdAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .createdAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .createdAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         self.quoteId = try container.decodeIfPresent(String.self, forKey: .quoteId)
         self.tags = try container.decodeIfPresent([String].self, forKey: .tags)
@@ -89,9 +85,7 @@ struct TagDetailModel: Decodable{
         if let date = iso8601FullFormatter.date(from: updatedDateString) {
             self.updatedAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .updatedAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .updatedAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         self.value = try container.decodeIfPresent(String.self, forKey: .value)
         
@@ -136,15 +130,12 @@ struct TagAuthor:Decodable{
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let iso8601FullFormatter = DateFormatter.iso8601Full
         
         let createdDateString = try container.decode(String.self, forKey: .createdAt)
         if let date = iso8601FullFormatter.date(from: createdDateString) {
             self.createdAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .createdAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .createdAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         self.bio = try container.decodeIfPresent(String.self, forKey: .bio)
         self.authorId = try container.decodeIfPresent(String.self, forKey: .authorId)
@@ -156,9 +147,7 @@ struct TagAuthor:Decodable{
         if let date = iso8601FullFormatter.date(from: updatedDateString) {
             self.updatedAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .updatedAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .updatedAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
     }
 }
@@ -182,15 +171,12 @@ struct TagSource:Decodable{
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let iso8601FullFormatter = DateFormatter.iso8601Full
         
         let createdDateString = try container.decode(String.self, forKey: .createdAt)
         if let date = iso8601FullFormatter.date(from: createdDateString) {
             self.createdAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .createdAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .createdAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         self.filename = try container.decodeIfPresent(String.self, forKey: .filename)
         self.quoteSourceId = try container.decodeIfPresent(String.self, forKey: .quoteSourceId)
@@ -201,9 +187,7 @@ struct TagSource:Decodable{
         if let date = iso8601FullFormatter.date(from: updatedDateString) {
             self.updatedAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .updatedAt,
-                                                   in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+            throw DecodingError.dataCorruptedError(forKey: .updatedAt, in: container, debugDescription: "Date string does not match format expected by formatter.")
         }
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
     }

@@ -32,11 +32,6 @@ extension NetworkManager {
                 completion(nil, .requestFailed)
                 return
             }
-            print("---------------------------")
-            print("URL:\(String(describing: response?.url?.absoluteString))")
-            print("data: \(String(describing: String(data: data!, encoding: String.Encoding.utf8)))")
-            print("---------------------------")
-            
             if httpResponse.statusCode == 200 {
                 if let dataObj = data{
                     do {
@@ -50,7 +45,6 @@ extension NetworkManager {
                 else{
                     completion(nil, .invalidData)
                 }
-                
             } else {
                 completion(nil, .responseUnsuccessful)
             }
@@ -66,7 +60,6 @@ extension NetworkManager {
     ///   - completion: closure to return the result
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         if Reachability.isConnectedToNetwork(){
-            
             let task = decodingTask(with: request, decodingType: T.self) { (json , error) in
                 
                 //MARK: change to main queue
